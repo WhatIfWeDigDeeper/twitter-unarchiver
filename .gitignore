@@ -1,4 +1,4 @@
 node_modules
 dist
-full_text*.txt
 twitter-*
+*_tweets.txt

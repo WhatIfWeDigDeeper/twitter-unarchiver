@@ -1,7 +1,6 @@
 import { writeFileSync } from 'fs';
-import { getTweets } from './tweet';
-import { Tweet } from './types';
 import * as process from "process";
+import { getFullTextTweets } from './twitterParser';
 
 if (process.argv.length < 2 || !process.argv[2]) {
   console.error('Please pass your username');
@@ -9,16 +8,6 @@ if (process.argv.length < 2 || !process.argv[2]) {
 }
 
 const userHandle = process.argv[2].replace('@', '');
-const userUrl = `https://twitter.com/${userHandle}/status/`
+const fullTextTweets = getFullTextTweets(userHandle);
 
-const extractContent = (tweet: Tweet): string =>
-`${new Date(tweet!.tweet!.created_at as string).toISOString()}
-${userUrl}${tweet.tweet.id_str}
-${tweet.tweet.full_text}
-`;
-
-const fullTextTweets = getTweets()
-  .map(extractContent)
-  .join(`\n\n`);
-
-writeFileSync('full_text_tweets.txt', fullTextTweets);
+writeFileSync(`${userHandle}_tweets.txt`, fullTextTweets);
