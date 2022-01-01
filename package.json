@@ -1,0 +1,17 @@
+{
+  "name": "twitter",
+  "version": "1.0.0",
+  "description": "extracts tweet data & writes to a file the date, url, and full text",
+  "main": "index.ts",
+  "scripts": {
+    "compile": "tsc --pretty --watch",
+    "generate": "ts-node src/index.ts"
+  },
+  "author": "WhatIfWeDigDeeper",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^17.0.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
