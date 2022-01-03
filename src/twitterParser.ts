@@ -1,4 +1,3 @@
-import { getTweets } from './tweet';
 import { Tweet } from './types';
 
 const extractContent = (userHandle: string) => (tweet: Tweet): string =>
@@ -7,9 +6,9 @@ https://twitter.com/${userHandle}/status/${tweet.tweet.id_str}
 ${tweet.tweet.full_text}
 `;
 
-export function getFullTextTweets(userHandle: string): string {
+export function getFullTextTweets(userHandle: string, tweets: Tweet[]): string {
   const getUserContent = extractContent(userHandle);
-  return getTweets()
+  return tweets
     .map(getUserContent)
     .join('\n\n');
 }

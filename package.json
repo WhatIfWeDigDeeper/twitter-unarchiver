@@ -2,7 +2,7 @@
   "name": "twitter-unarchiver",
   "version": "1.0.0",
   "description": "Extracts tweet data from Twitter archive & writes to a file the date, url, and full text",
-  "main": "index.ts",
+  "main": "src/index.ts",
   "scripts": {
     "compile": "tsc --pretty --watch",
     "generate": "ts-node src/index.ts"
